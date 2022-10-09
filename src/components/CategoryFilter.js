@@ -8,7 +8,7 @@ function CategoryFilter({ categories, filterClass, setFilterClass }) {
   }
 
   const categoriesList = categories.map(category => {
-    return <button key={uuidv4()} onClick={handleClick} className={category === filterClass ? "selected" : null}>{category}</button>
+    return <button key={uuidv4()} onClick={handleClick} className={category === filterClass ? "selected" : ""}>{category}</button>
   })
 
   return (

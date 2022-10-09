@@ -9,10 +9,12 @@ function TaskList( {tasks, setTasks, filterClass} ) {
     setTasks(newTasks)
   }
 
-  const tasksToDisplay = tasks.filter(task => {
+  const filteredTasks = tasks.filter(task => {
     if (filterClass === "All") return true;
     return task.category === filterClass;
-  }).map(task => (
+  })
+
+  const tasksToDisplay = filteredTasks.map(task => (
     <Task key={uuidv4()} text={task.text} category={task.category} onDelete={handleDelete} />
   ))
 
