@@ -1,11 +1,17 @@
 import React from "react";
+import { v4 as uuidv4 } from 'uuid';
 
-function Task() {
+function Task({ text, category, onDelete }) {
+
+  function handleDeleteClick() {
+    onDelete(text)
+  }
+
   return (
-    <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+    <div className="task" id={uuidv4()}>
+      <div className="label">{category}</div>
+      <div className="text" >{text}</div>
+      <button  className="delete" onClick={handleDeleteClick}>X</button>
     </div>
   );
 }
